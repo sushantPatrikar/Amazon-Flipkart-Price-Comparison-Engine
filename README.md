@@ -1,5 +1,5 @@
 # Amazon-Flipkart-Price-Comparison-Engine
-Compares price of a product entered by an user from e-commerce sites Amazon and Flipkart
+Compares price of the product entered by an user from e-commerce sites Amazon and Flipkart
 
 ## How to use
 After running this program a window is popped up which asks user to enter the product
