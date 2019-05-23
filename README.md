@@ -1,4 +1,8 @@
 # Amazon-Flipkart-Price-Comparison-Engine
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
+
+
 Compares price of the product entered by an user from e-commerce sites Amazon and Flipkart
 
 ## How to use
