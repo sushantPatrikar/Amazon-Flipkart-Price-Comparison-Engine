@@ -25,7 +25,7 @@ Select the desired product from the suggestions for both sites and then click on
 
 ## Highlights:
 1. You can try out suggestions to find other products related to your search just by clicking on the title of the product.
-2. By clicking on the 'Visit Site' button, you will be redirected to product's page on that site.
+2. By clicking on the 'Visit Site' button, you will be redirected to product's page of that site.
 
 ## Tip:
 To avoid 'Product not found', try searching the basic model and then select the desired version of that model instead of searching it with it's specifications.
