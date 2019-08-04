@@ -51,6 +51,11 @@ To avoid 'Product not found', try searching the basic model and then select the 
 
 For Example: Instead of searching 'Apple iPhone X (Space Grey, 256GB)', search 'Apple iPhone X' and then select the desired specifications from suggestions.
 
+
+
+## Future Scope:
+Currently this program works only on two e-commerce sites. More websites can be added to it. If you have more ideas, I'm excited to view Pull Requests from your side!
+
 For more information, visit my <a href="https://sushantpatrikar.github.io/">website</a>
 
 
