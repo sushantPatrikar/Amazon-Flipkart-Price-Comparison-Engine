@@ -22,9 +22,9 @@
 
 ## How to use
 After running this program a window is popped up which asks user to enter the product
-
-<img align="center" src="https://user-images.githubusercontent.com/40419750/42380586-114b5d8e-814c-11e8-9147-e24ad9a309a6.png">
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/40419750/42380586-114b5d8e-814c-11e8-9147-e24ad9a309a6.png">
+</p>
 After entering the product and clicking on the 'Find' button it will take us to another window which will show the title of the product on both sites and there corresponding prices
 
 ![screenshot 6](https://user-images.githubusercontent.com/40419750/42381017-687b5cfc-814d-11e8-9312-8a46054e5286.png)
