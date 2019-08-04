@@ -3,7 +3,7 @@
  <img height=150px src="./img/amazon.jpg" alt="Amazon-logo"></a>
 </p>
 
-
+<h1 align="center">Amazon-Flipkart Price Comparison Engine</h1>
 <div align="center">
 <img src="https://img.shields.io/github/license/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine">	
 <img src="https://www.codefactor.io/repository/github/sushantpatrikar/Amazon-Flipkart-Price-Comparison-Engine/badge/master">
@@ -13,7 +13,7 @@
 <img src="https://img.shields.io/github/issues/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine">
 <img src="https://img.shields.io/badge/PRs-welcome-informational">
 </div>
-<h1 align="center">Amazon-Flipkart Price Comparison Engine</h1>
+
 
 <h4 align="center">Compares price of the product entered by an user from e-commerce sites Amazon and Flipkart.</h4>
 <hr>
