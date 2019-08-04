@@ -14,9 +14,9 @@
 <img src="https://img.shields.io/badge/PRs-welcome-informational">
 </div>
 <h1 align="center">Amazon-Flipkart Price Comparison Engine</h1>
-<hr>
-<h4 align="center">Compares price of the product entered by an user from e-commerce sites Amazon and Flipkart.</h4>
 
+<h4 align="center">Compares price of the product entered by an user from e-commerce sites Amazon and Flipkart.</h4>
+<hr>
 ## How to use
 After running this program a window is popped up which asks user to enter the product
 
