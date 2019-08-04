@@ -21,17 +21,21 @@
 
 
 ## How to use
-After running this program a window is popped up which asks user to enter the product
+<p>After running this program a window is popped up which asks user to enter the product.</p>
 <p align="center">
   <img src="https://user-images.githubusercontent.com/40419750/42380586-114b5d8e-814c-11e8-9147-e24ad9a309a6.png">
 </p>
-After entering the product and clicking on the 'Find' button it will take us to another window which will show the title of the product on both sites and there corresponding prices
 
-![screenshot 6](https://user-images.githubusercontent.com/40419750/42381017-687b5cfc-814d-11e8-9312-8a46054e5286.png)
+<p>After entering the product and clicking on the 'Find' button it will take us to another window which will show the title of the product on both sites and there corresponding prices.</p>
 
-If you didn't get the desired product then click on the title to get suggestions related to your search
+<p align="center">
+  <img src = "https://user-images.githubusercontent.com/40419750/42381017-687b5cfc-814d-11e8-9312-8a46054e5286.png">
+</p>
 
-![screenshot 7](https://user-images.githubusercontent.com/40419750/42381407-90155cd0-814e-11e8-931a-7cef280047cc.png)
+<p>If you didn't get the desired product then click on the title to get suggestions related to your search.</p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/40419750/42381407-90155cd0-814e-11e8-931a-7cef280047cc.png">
+ </p>
 
 Select the desired product from the suggestions for both sites and then click on the 'Search' button to get their corresponding prices
 
