@@ -56,7 +56,7 @@ For Example: Instead of searching 'Apple iPhone X (Space Grey, 256GB)', search '
 ## Future Scope:
 Currently this program works only on two e-commerce sites. More websites can be added to it. If you have more ideas, I'm excited to view Pull Requests from your side!
 
-For more information, visit my <a href="https://sushantpatrikar.github.io/">website</a>.
+For more information, you can visit my <a href="https://sushantpatrikar.github.io/">website</a>.
 
 
 
