@@ -1,4 +1,9 @@
-# Amazon-Flipkart-Price-Comparison-Engine
+<p align="center">
+  <a href="" rel="noopener">
+ <img height=150px src="./img/amazon.jpg" alt="Amazon-logo"></a>
+</p>
+
+<h1 align="center">Amazon-Flipkart Price Comparison Engine</h1>
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CodeFactor](https://www.codefactor.io/repository/github/sushantpatrikar/amazon-flipkart-price-comparison-engine/badge)](https://www.codefactor.io/repository/github/sushantpatrikar/amazon-flipkart-price-comparison-engine)
 ![stars](https://img.shields.io/github/stars/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine.svg)
