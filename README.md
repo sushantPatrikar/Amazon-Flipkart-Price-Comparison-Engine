@@ -1,8 +1,10 @@
 # Amazon-Flipkart-Price-Comparison-Engine
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CodeFactor](https://www.codefactor.io/repository/github/sushantpatrikar/amazon-flipkart-price-comparison-engine/badge)](https://www.codefactor.io/repository/github/sushantpatrikar/amazon-flipkart-price-comparison-engine)
 ![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)
 ![stars](https://img.shields.io/github/stars/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine.svg)
 ![forks](https://img.shields.io/github/forks/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine.svg)
+
 
 Compares price of the product entered by an user from e-commerce sites Amazon and Flipkart
 
@@ -31,6 +33,8 @@ Select the desired product from the suggestions for both sites and then click on
 To avoid 'Product not found', try searching the basic model and then select the desired version of that model instead of searching it with it's specifications.
 
 For Example: Instead of searching 'Apple iPhone X (Space Grey, 256GB)', search 'Apple iPhone X' and then select the desired specifications from suggestions.
+
+For more information, visit my <a href="https://sushantpatrikar.github.io/">website</a>
 
 
 
