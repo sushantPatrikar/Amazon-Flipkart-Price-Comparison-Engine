@@ -15,7 +15,7 @@
 </div>
 
 
-<h4 align="center">Compares price of the product entered by an user from e-commerce sites Amazon and Flipkart.</h4>
+<h4 align="center">Compares price of the product entered by the user from e-commerce sites Amazon and Flipkart.</h4>
 <hr>
 
 
