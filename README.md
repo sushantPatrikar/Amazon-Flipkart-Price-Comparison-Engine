@@ -11,6 +11,7 @@
 <img src="https://img.shields.io/github/stars/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine">
 <img src="https://img.shields.io/github/forks/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine">
 <img src="https://img.shields.io/github/issues/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine">
+<img src="http://hits.dwyl.com/sushantPatrikar/Amazon-Flipkart-Price-Comparison-Engine.svg">
 <img src="https://img.shields.io/badge/PRs-welcome-informational">
 </div>
 
