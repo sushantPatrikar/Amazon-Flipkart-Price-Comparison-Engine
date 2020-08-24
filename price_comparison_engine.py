@@ -144,13 +144,15 @@ class Price_compare:
         source_code = requests.get(url_amzn, headers=self.headers)
         plain_text = source_code.text
         self.soup = BeautifulSoup(plain_text, "html.parser")
-        for titles in self.soup.find_all('a', {'class': 'a-link-normal a-text-normal'}):
+        for titles in self.soup.find_all('span',{'class':'a-size-medium a-color-base a-text-normal'}):
             try:
-                self.title_arr.append(titles.img.get('alt'))
+                self.title_arr.append(titles.text)
             except AttributeError:
+                print('hi')
                 continue
 
         # Getting closest match of the input from user in titles
+        print('title',self.title_arr)
         user_input = self.var.get().title()
         self.matches_amzn = get_close_matches(user_input, self.title_arr, 20, 0.01)
         self.opt_title.set(self.matches_amzn[0])
