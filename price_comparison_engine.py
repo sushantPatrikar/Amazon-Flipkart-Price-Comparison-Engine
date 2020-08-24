@@ -162,25 +162,16 @@ class Price_compare:
         for title in self.matches_amzn:
             self.looktable[title] = map[title]
         self.opt_title.set(self.matches_amzn[0])
-        self.var_amzn.set(self.looktable[self.matches_amzn[0]][0])
+        self.var_amzn.set(self.looktable[self.matches_amzn[0]][0]+'.00')
         self.product_link = self.looktable[self.matches_amzn[0]][1]
 
 
     def search(self):
         amzn_get = self.variable_amzn.get()
         self.opt_title.set(amzn_get)
-        product_block = self.soup.find(attrs={'title': self.opt_title.get()})
-        self.product_link = product_block.get('href')
-        product_source_code = requests.get(self.product_link, headers=self.headers)
-        product_plain_text = product_source_code.text
-        product_soup = BeautifulSoup(product_plain_text, "html.parser")
-        try:
-            for price in product_soup.find(attrs={'id': 'priceblock_ourprice'}):
-                self.var_amzn.set(price)
-        except TypeError:
-            self.var_amzn.set('None')
-            self.title_amzn_var.set('product not available')
-
+        product = self.opt_title.get()
+        price,self.product_link = self.looktable[product][0],self.looktable[product][1]
+        self.var_amzn.set(price+'.00')
         flip_get = self.variable_flip.get()
         self.opt_title_flip.set(flip_get)
 
