@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 from difflib import get_close_matches
 import webbrowser
+from collections import defaultdict
 
 root = Tk()
 class Price_compare:
@@ -139,36 +140,31 @@ class Price_compare:
 
         # Getting titles of all products on that page
 
-        self.title_arr = []
-        self.opt_title = StringVar()
+        map = defaultdict(list)
+        home = 'https://www.amazon.in'
         source_code = requests.get(url_amzn, headers=self.headers)
         plain_text = source_code.text
+        self.opt_title = StringVar()
         self.soup = BeautifulSoup(plain_text, "html.parser")
-        for titles in self.soup.find_all('span',{'class':'a-size-medium a-color-base a-text-normal'}):
-            try:
-                self.title_arr.append(titles.text)
-            except AttributeError:
-                print('hi')
-                continue
-
-        # Getting closest match of the input from user in titles
-        print('title',self.title_arr)
+        for html in self.soup.find_all('div', {
+            'class': 'sg-col-4-of-12 sg-col-8-of-16 sg-col-16-of-24 sg-col-12-of-20 sg-col-24-of-32 sg-col sg-col-28-of-36 sg-col-20-of-28'}):
+            title, price, link = None, 'Currently Unavailable', None
+            for heading in html.find_all('span', {'class': 'a-size-medium a-color-base a-text-normal'}):
+                title = heading.text
+            for p in html.find_all('span', {'class': 'a-price-whole'}):
+                price = p.text
+            for l in html.find_all('a', {'class': 'a-link-normal a-text-normal'}):
+                link = home + l.get('href')
+            map[title] = [price, link]
         user_input = self.var.get().title()
-        self.matches_amzn = get_close_matches(user_input, self.title_arr, 20, 0.01)
+        self.matches_amzn = get_close_matches(user_input, list(map.keys()), 20, 0.01)
+        self.looktable = {}
+        for title in self.matches_amzn:
+            self.looktable[title] = map[title]
         self.opt_title.set(self.matches_amzn[0])
-        product_block = self.soup.find(attrs= {'title': self.opt_title.get()})
-        self.product_link = product_block.get('href')
-        product_source_code = requests.get(self.product_link, headers=headers)
-        product_plain_text = product_source_code.text
-        product_soup = BeautifulSoup(product_plain_text, "html.parser")
-        try:
-            for price in product_soup.find(attrs={'id': 'priceblock_ourprice'}):
+        self.var_amzn.set(self.looktable[self.matches_amzn[0]][0])
+        self.product_link = self.looktable[self.matches_amzn[0]][1]
 
-                self.var_amzn.set(price)
-                self.title_amzn_var.set(self.matches_amzn[0])
-        except TypeError:
-                self.var_amzn.set('None')
-                self.title_amzn_var.set('product not available')
 
     def search(self):
         amzn_get = self.variable_amzn.get()
