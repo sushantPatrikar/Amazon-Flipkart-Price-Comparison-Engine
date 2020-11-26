@@ -115,15 +115,13 @@ class Price_compare:
                 price = p.text[1:]
             for l in block.find_all('a', {'class': '_1fQZEK'}):
                 link = home + l.get('href')
-            map[title] = [price,link]
+            map[title] = [price, link]
 
         user_input = self.var.get().title()
         self.matches_flip = get_close_matches(user_input, map.keys(), 20, 0.1)
         self.looktable_flip = {}
         for title in self.matches_flip:
             self.looktable_flip[title] = map[title]
-
-
 
         try:
             self.opt_title_flip.set(self.matches_flip[0])
@@ -173,7 +171,7 @@ class Price_compare:
         price, self.product_link = self.looktable[product][0], self.looktable[product][1]
         self.var_amzn.set(price + '.00')
         flip_get = self.variable_flip.get()
-        flip_price, self.link_flip = self.looktable_flip[flip_get][0],self.looktable_flip[flip_get][1]
+        flip_price, self.link_flip = self.looktable_flip[flip_get][0], self.looktable_flip[flip_get][1]
         self.var_flipkart.set(flip_price + '.00')
 
     def visit_amzn(self):
