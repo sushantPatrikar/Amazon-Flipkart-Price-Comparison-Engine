@@ -99,37 +99,38 @@ class Price_compare:
     def price_flipkart(self, key):
         url_flip = 'https://www.flipkart.com/search?q=' + str(
             key) + '&marketplace=FLIPKART&otracker=start&as-show=on&as=off'
+        map = defaultdict(list)
 
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-        title_arr = []
-        self.opt_title_flip = StringVar()
         source_code = requests.get(url_flip, headers=self.headers)
-        plain_text = source_code.text
-        self.soup_flip = BeautifulSoup(plain_text, "html.parser")
-        for title in self.soup_flip.find_all('div', {'class': '_3wU53n'}):
-            title_arr.append(title.text)
+        soup = BeautifulSoup(source_code.text, "html.parser")
+        self.opt_title_flip = StringVar()
+        home = 'https://www.flipkart.com'
+        for block in soup.find_all('div', {'class': '_2kHMtA'}):
+            title, price, link = None, 'Currently Unavailable', None
+            for heading in block.find_all('div', {'class': '_4rR01T'}):
+                title = heading.text
+            for p in block.find_all('div', {'class': '_30jeq3 _1_WHN1'}):
+                price = p.text[1:]
+            for l in block.find_all('a', {'class': '_1fQZEK'}):
+                link = home + l.get('href')
+            map[title] = [price,link]
 
         user_input = self.var.get().title()
+        self.matches_flip = get_close_matches(user_input, map.keys(), 20, 0.1)
+        self.looktable_flip = {}
+        for title in self.matches_flip:
+            self.looktable_flip[title] = map[title]
 
-        self.matches_flip = get_close_matches(user_input, title_arr, 20, 0.1)
+
+
         try:
             self.opt_title_flip.set(self.matches_flip[0])
+            self.var_flipkart.set(self.looktable_flip[self.matches_flip[0]][0] + '.00')
+            self.link_flip = self.looktable_flip[self.matches_flip[0]][1]
         except IndexError:
             self.opt_title_flip.set('Product not found')
-        try:
-            for div in self.soup_flip.find_all('a', {'class': '_31qSD5'}):
-                for each in div.find_all('div', {'class': '_3wU53n'}):
-                    if each.text == self.opt_title_flip.get():
-                        self.link_flip = 'https://www.flipkart.com' + div.get('href')
-
-            product_source_code = requests.get(self.link_flip, headers=self.headers)
-            product_plain_text = product_source_code.text
-            product_soup = BeautifulSoup(product_plain_text, "html.parser")
-            for price in product_soup.find_all('div', {'class': '_1vC4OE _3qQ9m1'}):
-                self.var_flipkart.set(price.text[1:] + '.00')
-        except UnboundLocalError:
-            pass
 
     def price_amzn(self, key):
         url_amzn = 'https://www.amazon.in/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords=' + str(key)
@@ -172,21 +173,8 @@ class Price_compare:
         price, self.product_link = self.looktable[product][0], self.looktable[product][1]
         self.var_amzn.set(price + '.00')
         flip_get = self.variable_flip.get()
-        self.opt_title_flip.set(flip_get)
-
-        try:
-            for div in self.soup_flip.find_all('a', {'class': '_31qSD5'}):
-                for each in div.find_all('div', {'class': '_3wU53n'}):
-                    if each.text == self.opt_title_flip.get():
-                        self.link_flip = 'https://www.flipkart.com' + div.get('href')
-
-            product_source_code = requests.get(self.link_flip, headers=self.headers)
-            product_plain_text = product_source_code.text
-            product_soup = BeautifulSoup(product_plain_text, "html.parser")
-            for price in product_soup.find_all('div', {'class': '_1vC4OE _3qQ9m1'}):
-                self.var_flipkart.set(price.text[1:] + '.00')
-        except UnboundLocalError:
-            pass
+        flip_price, self.link_flip = self.looktable_flip[flip_get][0],self.looktable_flip[flip_get][1]
+        self.var_flipkart.set(flip_price + '.00')
 
     def visit_amzn(self):
         webbrowser.open(self.product_link)
