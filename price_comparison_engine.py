@@ -137,24 +137,22 @@ class Price_compare:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
-        # Getting titles of all products on that page
-
         map = defaultdict(list)
         home = 'https://www.amazon.in'
         source_code = requests.get(url_amzn, headers=self.headers)
         plain_text = source_code.text
         self.opt_title = StringVar()
         self.soup = BeautifulSoup(plain_text, "html.parser")
-        for html in self.soup.find_all('div', {
-            'class': 'sg-col-4-of-12 sg-col-8-of-16 sg-col-16-of-24 sg-col-12-of-20 sg-col-24-of-32 sg-col sg-col-28-of-36 sg-col-20-of-28'}):
-            title, price, link = None, 'Currently Unavailable', None
+        for html in self.soup.find_all('div', {'class': 'sg-col-inner'}):
+            title, link = None, None
             for heading in html.find_all('span', {'class': 'a-size-medium a-color-base a-text-normal'}):
                 title = heading.text
             for p in html.find_all('span', {'class': 'a-price-whole'}):
                 price = p.text
             for l in html.find_all('a', {'class': 'a-link-normal a-text-normal'}):
                 link = home + l.get('href')
-            map[title] = [price, link]
+            if title and link:
+                map[title] = [price, link]
         user_input = self.var.get().title()
         self.matches_amzn = get_close_matches(user_input, list(map.keys()), 20, 0.01)
         self.looktable = {}
