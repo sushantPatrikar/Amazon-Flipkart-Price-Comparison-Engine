@@ -1,3 +1,5 @@
+
+
 from tkinter import *
 from bs4 import BeautifulSoup
 import requests
@@ -6,18 +8,19 @@ import webbrowser
 from collections import defaultdict
 
 root = Tk()
-
+root.geometry("320x150")
 
 class Price_compare:
 
     def __init__(self, master):
+        
         self.var = StringVar()
         self.var_ebay = StringVar()
         self.var_flipkart = StringVar()
         self.var_amzn = StringVar()
 
         label = Label(master, text='Enter the product')
-        label.grid(row=0, column=0)
+        label.grid(row=0, column=0,padx=(30,10),pady=30)
 
         entry = Entry(master, textvariable=self.var)
         entry.grid(row=0, column=1)
@@ -178,7 +181,7 @@ class Price_compare:
     def visit_flip(self):
         webbrowser.open(self.link_flip)
 
-
-c = Price_compare(root)
-root.title('Price Comparison Engine')
-root.mainloop()
+if __name__ == "__main__":
+    c = Price_compare(root)
+    root.title('Price Comparison Engine')
+    root.mainloop()
