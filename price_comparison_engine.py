@@ -163,15 +163,15 @@ class Price_compare:
         self.opt_title = StringVar()
         self.soup = BeautifulSoup(plain_text, "html.parser")
         # print(self.soup)
+        # print(self.soup.find_all('div', {'class': 'sg-col-inner'}))
         for html in self.soup.find_all('div', {'class': 'sg-col-inner'}):
-            title, link = None, None
+            title, link,price = None, None,None
             for heading in html.find_all('span', {'class': 'a-size-medium a-color-base a-text-normal'}):
                 title = heading.text
             for p in html.find_all('span', {'class': 'a-price-whole'}):
                 price = p.text
-            for l in html.find_all('a', {'class': 'a-link-normal a-text-normal'}):
+            for l in html.find_all('a', {'class': 'a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal'}):
                 link = home + l.get('href')
-            # print(title,link,price)
             if title and link:
                 map[title] = [price, link]
         user_input = self.var.get().title()
