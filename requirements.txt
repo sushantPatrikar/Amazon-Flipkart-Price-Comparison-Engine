@@ -23,7 +23,7 @@ matplotlib==2.2.2
 mccabe==0.6.1
 numpy==1.15.4
 pefile==2017.11.5
-protobuf==3.6.1
+protobuf==3.18.3
 pycparser==2.18
 pyinstaller==3.6
 pylint==2.4.4
