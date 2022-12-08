@@ -3,7 +3,7 @@ astroid==2.3.3
 auto-py-to-exe==2.6.6
 bottle==0.12.19
 bottle-websocket==0.2.9
-certifi==2018.4.16
+certifi==2022.12.7
 cffi==1.11.5
 chardet==3.0.4
 colorama==0.4.3
